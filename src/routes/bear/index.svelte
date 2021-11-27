@@ -1,16 +1,23 @@
 <script>
-    import ExerciseContainer from "$lib/exercises/ExerciseContainer.svelte";
+    import ExerciseContainer from "$lib/components/ExerciseContainer.svelte";
 
     let exercises = [
-        {name: "General Stretch", time: 10},
-        {name: "Hamstring", time: 30},
-        {name: "Wrist Circles", time: 30},
-        {name: "Wrist Pressing", time: 30},
-        {name: "Back Circles 1/2", time: 30},
-        {name: "Back Circles 2/2", time: 30},
-        {name: "Walk Into Squat", time: 30},
+        {name: "A Frame", time: 15},
+        {name: "Bear Walk", time: 30},
     ];
+
+    function addMoreExercises() {
+        exercises = [
+            ...exercises,
+            {name: "Bear Walk", time: 30}
+        ]
+    }
 </script>
 
 
-<ExerciseContainer title="🐻 Warmup 🐻" {exercises} prev="" next="/bear/movement" />
+<ExerciseContainer title="🐻 Movement 🐻" {exercises} prev="" next="" />
+
+
+<p class="text-center">
+    <button class="btn btn-dark px-5" on:click={addMoreExercises}>Add More Bear</button>
+</p>

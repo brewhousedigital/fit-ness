@@ -1,5 +1,5 @@
 <script>
-    import Exercise from "$lib/exercises/ExerciseBox.svelte";
+    import ExerciseStartBox from "$lib/components/ExerciseStartBox.svelte";
 
     export let title = "";
     export let exercises = [];
@@ -11,7 +11,7 @@
     <h1 class="mb-4">{title}</h1>
 
     {#each exercises as exercise}
-        <Exercise exercise={exercise.name} timer={exercise.time} />
+        <ExerciseStartBox exercise={exercise.name} timer={exercise.time} />
     {/each}
 </div>
 

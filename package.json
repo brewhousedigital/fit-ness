@@ -2,7 +2,8 @@
   "name": "fit-ness",
   "version": "0.0.1",
   "scripts": {
-    "dev": "svelte-kit dev",
+    "start": "svelte-kit dev --port 620",
+    "dev": "svelte-kit dev --port 620",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview"

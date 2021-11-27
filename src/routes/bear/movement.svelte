@@ -1,5 +1,5 @@
 <script>
-    import ExerciseContainer from "$lib/exercises/ExerciseContainer.svelte";
+    import ExerciseContainer from "$lib/components/ExerciseContainer.svelte";
 
     let exercises = [
         {name: "A Frame", time: 15},

@@ -1,5 +1,5 @@
 <script>
-    import CompletedAnimation from "$lib/exercises/CompletedAnimation.svelte";
+    import ExerciseCompletedAnimation from "$lib/components/ExerciseCompletedAnimation.svelte";
     import {completionSpeech} from "$lib/stores";
 
     let complete = false;
@@ -62,5 +62,5 @@
 
     <p><button class="btn btn-primary btn-lg px-4" on:click={startCountdown}>Start</button></p>
 
-    <CompletedAnimation show={complete} />
+    <ExerciseCompletedAnimation show={complete} />
 </div>
