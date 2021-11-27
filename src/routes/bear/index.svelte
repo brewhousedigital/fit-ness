@@ -2,7 +2,7 @@
     import ExerciseContainer from "$lib/exercises/ExerciseContainer.svelte";
 
     let exercises = [
-        {name: "General Stretch", time: 3},
+        {name: "General Stretch", time: 10},
         {name: "Hamstring", time: 30},
         {name: "Wrist Circles", time: 30},
         {name: "Wrist Pressing", time: 30},

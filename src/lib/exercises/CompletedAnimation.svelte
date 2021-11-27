@@ -10,6 +10,7 @@
             setTimeout(() => {show = false;}, 2000);
             window.navigator.vibrate([200, 100, 200, 100, 200]);
 
+            $completionSpeech.text = "Ok you got it!";
             window.speechSynthesis.speak($completionSpeech);
         }
     }

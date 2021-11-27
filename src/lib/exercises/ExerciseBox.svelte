@@ -1,5 +1,6 @@
 <script>
     import CompletedAnimation from "$lib/exercises/CompletedAnimation.svelte";
+    import {completionSpeech} from "$lib/stores";
 
     let complete = false;
     export let exercise = "Wrist Circles";
@@ -8,6 +9,18 @@
     function startCountdown() {
         let countdown = setInterval(() => {
             timer--;
+
+            // 5 seconds left shoutout
+            if(timer === 5) {
+                $completionSpeech.text = "5 seconds left";
+                window.speechSynthesis.speak($completionSpeech);
+            }
+
+            // 2 seconds left shoutout
+            if(timer === 2) {
+                $completionSpeech.text = "2 seconds left";
+                window.speechSynthesis.speak($completionSpeech);
+            }
 
             // Clear interval when done
             if(timer === 0) {

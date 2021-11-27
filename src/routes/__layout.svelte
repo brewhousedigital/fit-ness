@@ -10,7 +10,6 @@
         const voices = window.speechSynthesis.getVoices();
         msg.voice = voices[5];
         msg.lang = 'en';
-        msg.text = "Ok you got it!";
         completionSpeech.set(msg);
     })
 </script>
