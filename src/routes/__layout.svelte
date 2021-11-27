@@ -3,6 +3,12 @@
     import {onMount} from "svelte";
     import {completionSpeech} from "$lib/stores";
 
+    let loading = true;
+
+    let password = "8080";
+    let passwordEntry = "";
+    let authenticated = false;
+
     onMount(() => {
         navigator.wakeLock.request('screen');
 
@@ -11,7 +17,22 @@
         msg.voice = voices[5];
         msg.lang = 'en';
         completionSpeech.set(msg);
+
+        if(localStorage.getItem("fitness-authenticated") !== null) {
+            authenticated = true;
+        }
+
+        loading = false;
     })
+
+    function validatePassword() {
+        if(passwordEntry === password) {
+            authenticated = true;
+            localStorage.setItem("fitness-authenticated", "true");
+        } else {
+            passwordEntry = "";
+        }
+    }
 </script>
 
 
@@ -36,11 +57,22 @@
     }
 </style>
 
+<div class="container" style={loading ? "opacity: 0;" : ""}>
+    {#if authenticated}
 
-<div class="container">
-    <nav class="mb-5">
-        <a href="/">Home</a>
-    </nav>
+        <nav class="mb-5">
+            <a href="/">Home</a>
+        </nav>
 
-    <slot></slot>
+        <slot></slot>
+
+    {:else}
+
+        <div class="text-center">
+            <h1>Password</h1>
+            <input class="form-control mb-2" type="password" bind:value={passwordEntry}>
+            <button class="btn btn-primary px-5" on:click={validatePassword}>Go!</button>
+        </div>
+
+    {/if}
 </div>
