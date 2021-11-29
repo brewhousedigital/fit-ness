@@ -10,7 +10,10 @@
     let authenticated = false;
 
     onMount(() => {
-        //navigator.wakeLock.request('screen');
+        try {
+            navigator.wakeLock.request('screen');
+        }
+        catch(error) {console.log("iOS doesnt support wakeLock")}
 
         const msg = new SpeechSynthesisUtterance();
         const voices = window.speechSynthesis.getVoices();

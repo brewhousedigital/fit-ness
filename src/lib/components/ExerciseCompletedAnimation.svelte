@@ -8,7 +8,11 @@
         if(show) {
             // Show the animation when the parent passes "true"
             setTimeout(() => {show = false;}, 2000);
-            window.navigator.vibrate([200, 100, 200, 100, 200]);
+
+            try {
+                window.navigator.vibrate([200, 100, 200, 100, 200]);
+            }
+            catch(error) {console.log("iOS doesnt support vibrate")}
 
             $completionSpeech.text = "Ok you got it!";
             window.speechSynthesis.speak($completionSpeech);
