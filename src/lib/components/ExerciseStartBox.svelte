@@ -2,11 +2,13 @@
     import ExerciseCompletedAnimation from "$lib/components/ExerciseCompletedAnimation.svelte";
     import {completionSpeech} from "$lib/stores";
 
+    let disabled = false;
     let complete = false;
     export let exercise = "Wrist Circles";
     export let timer = 3;
 
     function startCountdown() {
+        disabled = true;
         let countdown = setInterval(() => {
             timer--;
 
@@ -60,7 +62,7 @@
 
     <h3 class="display-1">{timer}<span class="small">s</span></h3>
 
-    <p><button class="btn btn-primary btn-lg px-4" on:click={startCountdown}>Start</button></p>
+    <p><button class="btn btn-primary btn-lg px-4" on:click={startCountdown} {disabled}>Start</button></p>
 
     <ExerciseCompletedAnimation show={complete} />
 </div>

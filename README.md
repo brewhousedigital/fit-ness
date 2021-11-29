@@ -1,5 +1,4 @@
 # Todo
-- disable buttons while counting down and afterwards.
 - add a reset button for specific exercise
 - add 30s for rotating elbows and arms
 - change general warmup to 40s
