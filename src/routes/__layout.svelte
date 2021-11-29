@@ -10,7 +10,7 @@
     let authenticated = false;
 
     onMount(() => {
-        navigator.wakeLock.request('screen');
+        //navigator.wakeLock.request('screen');
 
         const msg = new SpeechSynthesisUtterance();
         const voices = window.speechSynthesis.getVoices();
